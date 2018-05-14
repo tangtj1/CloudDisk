@@ -21,6 +21,9 @@
         <spring.version>5.0.6.RELEASE</spring.version>
         <jstl.version>1.2.5</jstl.version>
         <shiro.version>1.4.0</shiro.version>
+        <mysql.version>6.0.6</mysql.version>
+        <c3p0.verison>0.9.5.2</c3p0.verison>
+        <dbuitl.version>1.7</dbuitl.version>
     </properties>
 
     <!--依赖项定义-->
@@ -77,6 +80,22 @@
             <artifactId>javaee-api</artifactId>
             <version>${javaee.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>${c3p0.verison}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-dbutils</groupId>
+            <artifactId>commons-dbutils</artifactId>
+            <version>${dbuitl.version}</version>
         </dependency>
     </dependencies>
 
