@@ -18,7 +18,7 @@
             <div class="form-group" id="nameInput">
               <label for="userName" class="control-label col-sm-3">用户名</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="userName" name="username">、
+                <input type="text" class="form-control" id="userName" name="username">
                 <div class="errorMsg">
                   <label for="username" class="control-label"></label>
                 </div>
