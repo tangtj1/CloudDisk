@@ -37,9 +37,9 @@
               <input class="btn btn-primary col-sm-offset-4 col-sm-4" type="submit" value="登录">
             </div>
             <a href="${pageContext.request.contextPath}/signUp" class="btn btn-link col-md-offset-4 col-md-4">用户注册</a>
-            <c:if test="${loginError != null}">
+            <c:if test="${message != null}">
               <div class="alert alert-danger col-sm-12">
-                <p>${loginError}</p>
+                <p>${message}</p>
               </div>
             </c:if>
 
