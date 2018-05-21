@@ -10,6 +10,7 @@ public class UploadFile {
     private Date uploadDate;
     private Boolean sharing;
     private String shareCode;
+    private String mappingName;
 
     public Integer getId() {
         return id;
@@ -65,5 +66,13 @@ public class UploadFile {
 
     public void setShareCode(String shareCode) {
         this.shareCode = shareCode;
+    }
+
+    public String getMappingName() {
+        return mappingName;
+    }
+
+    public void setMappingName(String mappingName) {
+        this.mappingName = mappingName;
     }
 }

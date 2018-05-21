@@ -8,7 +8,8 @@ public class User {
     private Integer id;
     private String username;
     private String password;
-    private Integer roleId;
+    private Long fileMaxSize;
+    private Integer fileMaxCount;
 
     public Integer getId() {
         return id;
@@ -34,11 +35,19 @@ public class User {
         this.password = password;
     }
 
-    public Integer getRoleId() {
-        return roleId;
+    public Long getFileMaxSize() {
+        return fileMaxSize;
     }
 
-    public void setRoleId(Integer roleId) {
-        this.roleId = roleId;
+    public void setFileMaxSize(Long fileMaxSize) {
+        this.fileMaxSize = fileMaxSize;
+    }
+
+    public Integer getFileMaxCount() {
+        return fileMaxCount;
+    }
+
+    public void setFileMaxCount(Integer fileMaxCount) {
+        this.fileMaxCount = fileMaxCount;
     }
 }
