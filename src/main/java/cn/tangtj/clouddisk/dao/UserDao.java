@@ -26,10 +26,21 @@ public class UserDao {
     }
 
     public User findById(int id) {
-        String sql = "select * from user where userId = ?";
+        String sql = "select * from user where id = ?";
         QueryRunner runner = JdbcUtil.getQueryRunner();
         try {
             return runner.query(sql, new BeanHandler<>(User.class), id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public User save(User user){
+        String sqlUser = "insert into user(username,password,filemaxsize,filemaxcount) value(?,?,?,?)";
+        QueryRunner runner = JdbcUtil.getQueryRunner();
+        try {
+            return runner.insert(sqlUser, new BeanHandler<>(User.class),user.getUsername(),user.getPassword(),user.getFileMaxSize(),user.getFileMaxCount());
         } catch (SQLException e) {
             e.printStackTrace();
         }
