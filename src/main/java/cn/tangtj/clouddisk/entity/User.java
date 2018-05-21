@@ -8,8 +8,8 @@ public class User {
     private Integer id;
     private String username;
     private String password;
-    private Long fileMaxSize;
-    private Integer fileMaxCount;
+    private Long fileMaxSize = 50L * 1024 * 1024;
+    private Integer fileMaxCount = 50;
 
     public Integer getId() {
         return id;

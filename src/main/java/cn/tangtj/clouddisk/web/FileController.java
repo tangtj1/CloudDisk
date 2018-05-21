@@ -35,8 +35,6 @@ public class FileController {
 
     private final static String fileSaveDir = "upload";
 
-    private final static String fileTempDir = "temp";
-
     private final UserService userService;
 
     private final FileService fileService;
