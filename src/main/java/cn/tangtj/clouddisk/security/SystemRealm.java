@@ -2,6 +2,8 @@ package cn.tangtj.clouddisk.security;
 
 import cn.tangtj.clouddisk.entity.User;
 import cn.tangtj.clouddisk.service.UserService;
+import cn.tangtj.clouddisk.utils.UserUtil;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -36,6 +38,10 @@ public class SystemRealm extends AuthorizingRealm {
         if (user == null){
             throw new UnknownAccountException();
         }else {
+            User now = UserUtil.getPrincipal();
+            if (now != null){
+                SecurityUtils.getSubject().logout();
+            }
             if (user.getPassword().equals(password)){
                 return new SimpleAuthenticationInfo(user,password,getName());
             }
