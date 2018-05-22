@@ -9,6 +9,7 @@ import cn.tangtj.clouddisk.utils.FileUtil;
 import cn.tangtj.clouddisk.utils.StringUtil;
 import cn.tangtj.clouddisk.utils.UserUtil;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -151,5 +152,13 @@ public class FileController {
             }
         });
         return "redirect:/file";
+    }
+
+
+    @RequestMapping("/cancel")
+    public String logout(){
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
+        return "redirect:/";
     }
 }
