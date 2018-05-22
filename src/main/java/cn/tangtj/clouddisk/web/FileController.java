@@ -68,13 +68,23 @@ public class FileController {
     public String fileUpload(MultipartFile file) {
         User user = UserUtil.getPrincipal();
 
-        if (file != null && !file.isEmpty()) {
+        if (user != null && file != null && !file.isEmpty()) {
             UploadFile f = new UploadFile();
             f.setFileName(file.getOriginalFilename());
             f.setUserId(user.getId());
             f.setFileSize(file.getSize());
             f.setUploadDate(new Date());
             String md5Name = StringUtil.str2md5(f.getFileName() + "," + f.getUserId() + "," + f.getUploadDate().toString());
+
+            Files files = new Files(fileService.findByUserId(user.getId()));
+
+            if(files.getFilesSize() + f.getFileSize() > user.getFileMaxSize()){
+                return "upload.fail";
+            }
+            if (files.getFilesCount() + 1 > user.getFileMaxCount()){
+                return "upload,fail";
+            }
+
             if (md5Name == null) {
                 return "upload,fail";
             }
