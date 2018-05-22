@@ -11,7 +11,7 @@ private static final Logger logger = LogManager.getLogger(实际类名.class.get
 <configuration status="error">
     <Properties>
         <Property name="fileName">log.log</Property>
-        <Property name="backupFilePatch">${sys:catalina.home}/CloudDisk/</Property>
+        <Property name="backupFilePatch">${sys:catalina.home}/logs/CloudDisk/</Property>
     </Properties>
     <!--先定义所有的appender-->
     <appenders>
