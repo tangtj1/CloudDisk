@@ -38,9 +38,9 @@ public class ShareFileController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String shareUi(Model model) {
-        Guest guest = new Guest();
-        guest.setDownloadTime(0);
-        model.addAttribute("guest", guest);
+//        Guest guest = new Guest();
+//        guest.setDownloadTime(0);
+//        model.addAttribute("guest", guest);
         return "shareFileIndex";
     }
 
@@ -61,13 +61,13 @@ public class ShareFileController {
 
     @RequestMapping(value = "/{shareCode}/download")
     public ResponseEntity<byte[]> shareDownload(@SessionAttribute Guest guest, @PathVariable("shareCode") String shareCode) {
-        if (guest == null) {
-            return null;
-        }
-        if (guest.getDownloadTime() >= 10) {
-            return null;
-        }
-        guest.setDownloadTime(guest.getDownloadTime() + 1);
+//        if (guest == null) {
+//            return null;
+//        }
+//        if (guest.getDownloadTime() >= 10) {
+//            return null;
+//        }
+//        guest.setDownloadTime(guest.getDownloadTime() + 1);
         UploadFile fileInfo = fileService.findByShareCode(shareCode);
         return FileUtil.createResponseEntityByFileInfo(fileInfo, fileSavePath);
     }
