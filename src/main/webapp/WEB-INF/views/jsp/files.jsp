@@ -42,7 +42,7 @@
             MB</p>
           <div class="progress">
             <div class="progress-bar" aria-valuemin="0" aria-valuemax="100"
-                 style="width: ${userFileInfo.fileSizeTotal/userFileInfo.roleInfo.fileSizeMaxTotal * 100}%;">
+                 style="width: ${files.filesSize/user.fileMaxSize * 100}%;">
             </div>
           </div>
         </div>
@@ -53,7 +53,7 @@
           <p class="h3 text-center">文件数量：${files.filesCount} / ${user.fileMaxCount}</p>
           <div class="progress">
             <div class="progress-bar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"
-                 style="width: ${userFileInfo.fileCount/userFileInfo.roleInfo.fileMaxCount * 100}%;">
+                 style="width: ${files.filesCount/user.fileMaxCount * 100}%;">
             </div>
           </div>
         </div>
