@@ -57,7 +57,7 @@ class SignUpController {
             model.addAttribute("errorPwdMsg", "密码不符合规范");
             return "signUp";
         }
-        if (password.equals(reuserpwd)){
+        if (!password.equals(reuserpwd)){
             model.addAttribute("signUpError", "两次密码不一致");
             return "signUp";
         }
