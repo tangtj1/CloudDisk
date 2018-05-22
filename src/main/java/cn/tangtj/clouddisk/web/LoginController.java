@@ -2,6 +2,8 @@ package cn.tangtj.clouddisk.web;
 
 import cn.tangtj.clouddisk.entity.User;
 import cn.tangtj.clouddisk.utils.UserUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,8 +18,11 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class LoginController {
 
+    private static Logger logger = LogManager.getLogger(LoginController.class.getName());
+
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String login(){
+        logger.error("用户访问");
         return "login";
     }
 

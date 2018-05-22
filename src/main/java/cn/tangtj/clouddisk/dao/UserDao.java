@@ -2,11 +2,14 @@ package cn.tangtj.clouddisk.dao;
 
 import cn.tangtj.clouddisk.entity.User;
 import cn.tangtj.clouddisk.utils.JdbcUtil;
+import cn.tangtj.clouddisk.web.LoginController;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.logging.log4j.LogManager;
 import org.springframework.stereotype.Repository;
 
 import java.sql.SQLException;
+import java.util.logging.Logger;
 
 /**
  * @author tang
@@ -14,12 +17,15 @@ import java.sql.SQLException;
 @Repository
 public class UserDao {
 
+    private static org.apache.logging.log4j.Logger logger = LogManager.getLogger(LoginController.class.getName());
+
     public User findByName(String name) {
         String sql = "select * from user where userName = ?";
         QueryRunner runner = JdbcUtil.getQueryRunner();
         try {
             return runner.query(sql, new BeanHandler<>(User.class), name);
         } catch (SQLException e) {
+            logger.warn(e.getMessage());
             e.printStackTrace();
         }
         return null;
